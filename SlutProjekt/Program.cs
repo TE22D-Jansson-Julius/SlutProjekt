@@ -3,19 +3,24 @@ using System.Security;
 using System.Security.Cryptography.X509Certificates;
 using Raylib_cs;
 
-Raylib.InitWindow(1920,1080,"Mario");
+Raylib.InitWindow(1920, 1080, "Mario");
+Raylib.SetTargetFPS(60);
+
 Player player = new Player();
 
-while(!Raylib.WindowShouldClose()){
+while (!Raylib.WindowShouldClose())
+{
 
-Raylib.BeginDrawing();
-Raylib.ClearBackground(Color.Gray);
-
-
+player.rörelse();
 
 
-Console.ReadLine();
+    Raylib.BeginDrawing();
+    Raylib.ClearBackground(Color.Green);
+Raylib.DrawRectangleRec(player.player,Color.Purple);
 
+
+
+
+    Raylib.EndDrawing();
 }
 
-Raylib.EndDrawing();
