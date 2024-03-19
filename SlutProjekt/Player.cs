@@ -1,5 +1,6 @@
 using Raylib_cs;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 
@@ -9,8 +10,8 @@ public class Player
 
  Vector2 movement = new Vector2(0, 0);
         float speed = 2;
-
-float gravity = -5;
+float jump = -12;
+float gravity = +0.3f;
 
    public Rectangle player = new Rectangle(500, 500, 50, 50);
 
@@ -30,29 +31,18 @@ float gravity = -5;
         {
             movement.X = 1;
         }
-        // if (Raylib.IsKeyPressed(KeyboardKey.Space))
-        // {
-        //     movement.Y = gravity;
-        // }
-
-        if (movement.Length() > 0)
+        if (Raylib.IsKeyPressed(KeyboardKey.Space))
         {
-            movement = Vector2.Normalize(movement) * speed;
+            movement.Y = jump;
         }
         
-// if (player.Y >= 1080){
-//     gravity = 0;
-// } 
-// else if (player.Y < 1080){
-//     gravity = +5;
-// }
-// player.Y += gravity;
-       
+
 
         player.X += movement.X;
         player.Y += movement.Y;
-
+movement.Y += gravity ;
         
     }
 
 }
+// && player.Y = 1080
