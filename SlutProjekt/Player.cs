@@ -9,11 +9,11 @@ public class Player
 
 
  Vector2 movement = new Vector2(0, 0);
-        float speed = 2;
+        
 float jump = -12;
 float gravity = +0.3f;
 
-   public Rectangle player = new Rectangle(500, 500, 50, 50);
+   public Rectangle player = new Rectangle(300, 300, 50, 50);
 
 
     public void rörelse()
@@ -25,11 +25,11 @@ float gravity = +0.3f;
 
         if (Raylib.IsKeyDown(KeyboardKey.A))
         {
-            movement.X = -1;
+            movement.X = -3;
         }
         else if (Raylib.IsKeyDown(KeyboardKey.D))
         {
-            movement.X = 1;
+            movement.X = 3;
         }
         if (Raylib.IsKeyPressed(KeyboardKey.Space))
         {
