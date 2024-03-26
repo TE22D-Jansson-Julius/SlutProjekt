@@ -5,26 +5,26 @@ using System.Numerics;
 
 public class WallsC
 {
-    List<Rectangle> walls = new();
+    public  List<Rectangle> walls = new();
     List<Rectangle> goals = new();
     bool map = true;
     public Rectangle wall = new Rectangle(0, 60, 60, 60);
 
-public void bana()
-{
-     if(map)
+    public void bana()
     {
+        if (map)
+        {
+        }
     }
-}
 
-public void wall1()
+    public void wall1()
     {
         int[,] grid = {
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -33,6 +33,7 @@ public void wall1()
     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
      };
+
 
 
         int tileSize = 50;
@@ -56,15 +57,16 @@ public void wall1()
     public void wall2()
     {
 
+
         foreach (Rectangle w in walls)
         {
-            Raylib.DrawRectangleRec(w, Color.Black);
-            Raylib.DrawRectangleLinesEx(w, 1, Color.DarkBlue);
+            Raylib.DrawRectangleRec(w, Color.Green);
+            Raylib.DrawRectangleLinesEx(w, 1, Color.DarkGreen);
         }
         foreach (Rectangle g in goals)
         {
-            Raylib.DrawRectangleRec(g, Color.Green);
-            Raylib.DrawRectangleLinesEx(g, 1, Color.Black);
+            Raylib.DrawRectangleRec(g, Color.Purple);
+            Raylib.DrawRectangleLinesEx(g, 1, Color.Red);
 
         }
     }

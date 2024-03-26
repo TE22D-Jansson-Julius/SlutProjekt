@@ -8,12 +8,12 @@ public class Player
 {
 
 
- Vector2 movement = new Vector2(0, 0);
-        
-float jump = -12;
-float gravity = +0.3f;
+    public Vector2 movement = new Vector2(0, 0);
 
-   public Rectangle player = new Rectangle(300, 300, 50, 50);
+    public float jump = -12;
+    public float gravity = +0.3f;
+
+    public Rectangle player = new Rectangle(300, 300, 50, 50);
 
 
     public void rörelse()
@@ -35,13 +35,13 @@ float gravity = +0.3f;
         {
             movement.Y = jump;
         }
-        
+
 
 
         player.X += movement.X;
         player.Y += movement.Y;
-movement.Y += gravity ;
-        
+        movement.Y += gravity;
+
     }
 
 }

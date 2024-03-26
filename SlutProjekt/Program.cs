@@ -7,24 +7,31 @@ using Raylib_cs;
 Raylib.InitWindow(800, 600, "Mario");
 Raylib.SetTargetFPS(60);
 
-Player player = new Player();
-WallsC walls = new WallsC();
+Player gubbe = new Player();
+WallsC wall = new WallsC();
+
 
 
 while (!Raylib.WindowShouldClose())
 {
 
-player.rörelse();
+    gubbe.rörelse();
 
 
     Raylib.BeginDrawing();
-    Raylib.ClearBackground(Color.Green);
-Raylib.DrawRectangleRec(player.player,Color.Purple);
+    Raylib.ClearBackground(Color.SkyBlue);
+    Raylib.DrawRectangleRec(gubbe.player, Color.Purple);
 
 
-WallsC.wall1();
+    wall.wall1();
+    wall.wall2();
 
-
+    foreach (Rectangle w in wall.walls)
+        if (Raylib.CheckCollisionRecs(w, gubbe.player))
+        {
+            gubbe.movement.Y = 0;
+            gubbe.player.Y = w.Y-50;
+        }
 
     Raylib.EndDrawing();
 }
