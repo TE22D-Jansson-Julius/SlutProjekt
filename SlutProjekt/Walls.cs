@@ -5,13 +5,13 @@ using System.Numerics;
 
 public class WallsC
 {
-    public  List<Rectangle> floor = new();
-  
-    public  List<Rectangle> goals = new();
+    public List<Rectangle> floor = new();
 
-     public  List<Rectangle> pole = new();
+    public List<Rectangle> goals = new();
+
+    public List<Rectangle> pole = new();
     bool map = true;
-    public Rectangle wall = new Rectangle(0, 60, 60, 60);
+    // public Rectangle wall = new Rectangle(0, 60, 60, 60);
 
     public void bana()
     {
@@ -27,12 +27,12 @@ public class WallsC
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,2,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
      };
@@ -54,7 +54,7 @@ public class WallsC
 
                     goals.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
                 }
-                    if (grid[y, x] == 2)
+                if (grid[y, x] == 2)
                 {
 
                     pole.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
@@ -76,14 +76,14 @@ public class WallsC
             Raylib.DrawRectangleRec(g, Color.Purple);
             Raylib.DrawRectangleLinesEx(g, 1, Color.Red);
 
- }
-foreach (Rectangle p in pole)
+        }
+        foreach (Rectangle p in pole)
         {
             Raylib.DrawRectangleRec(p, Color.DarkGreen);
             Raylib.DrawRectangleLinesEx(p, 1, Color.Green);
 
         }
-       
+
     }
 }
 

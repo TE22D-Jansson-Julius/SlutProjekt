@@ -11,26 +11,67 @@ Raylib.SetTargetFPS(60);
 Player gubbe = new Player();
 WallsC wall = new WallsC();
 
- wall.wall1();
+
+string scene = "start";
 
 
-    
+wall.wall1();
 
 while (!Raylib.WindowShouldClose())
 {
+    if (scene == "start")
+    {
+        Raylib.ClearBackground(Color.Yellow);
+        Raylib.DrawText("Press Space to play", 150, 310, 35, Color.Black);
+        Raylib.DrawText("A and D to move Space to jump", 100, 370, 35, Color.Black);
+        if (Raylib.IsKeyDown(KeyboardKey.Space))
+        {
 
-    gubbe.rörelse();
+            scene = "play";
+            // game = true;
+
+        }
+    }
+
+    if (scene == "play")
+    {
+
+        gubbe.rörelse();
+        wall.wall2();
+
+        Raylib.BeginDrawing();
+        Raylib.ClearBackground(Color.SkyBlue);
+        Raylib.DrawRectangleRec(gubbe.player, Color.Purple);
 
 
-    Raylib.BeginDrawing();
-    Raylib.ClearBackground(Color.SkyBlue);
-    Raylib.DrawRectangleRec(gubbe.player, Color.Purple);
+        Collision.collision(wall, gubbe);
+        scene = Collision.games;
 
-wall.wall2();
-   
- Collision.collision(wall, gubbe);
 
- 
+
+    }
+
+    if (scene == "dead")
+    {
+        Raylib.ClearBackground(Color.Yellow);
+        Raylib.DrawText("Press space to try again", 150, 310, 35, Color.Black);
+
+        if (Raylib.IsKeyDown(KeyboardKey.Space))
+        {
+
+            gubbe.player.Y = 500;
+            gubbe.player.X = 100;
+            scene = "play";
+
+        }
+    }
+
+    if (scene == "win")
+    {
+        Raylib.ClearBackground(Color.Yellow);
+        Raylib.DrawText("WOW, YOU WIN", 150, 310, 35, Color.Black);
+        Raylib.DrawText("Press ESC to exit", 150, 350, 35, Color.Black);
+    }
 
     Raylib.EndDrawing();
 }

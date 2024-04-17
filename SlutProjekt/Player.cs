@@ -10,10 +10,10 @@ public class Player
 
     public Vector2 movement = new Vector2(0, 0);
 
-    public float jump = -12;
+    public float jump = -10;
     public float gravity = +0.3f;
 
-    public Rectangle player = new Rectangle(300, 300, 50, 50);
+    public Rectangle player = new Rectangle(100, 500, 50, 50);
 
 
     public void rörelse()
