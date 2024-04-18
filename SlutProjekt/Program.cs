@@ -5,7 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using Raylib_cs;
 
 
-Raylib.InitWindow(800, 600, "Mario");
+Raylib.InitWindow(1200, 600, "Jag vet inte");
 Raylib.SetTargetFPS(60);
 
 Player gubbe = new Player();
@@ -36,7 +36,7 @@ while (!Raylib.WindowShouldClose())
     if (scene == "play")
     {
 
-        gubbe.rörelse();
+        gubbe.rörelse(wall);
         wall.wall2();
 
         Raylib.BeginDrawing();
@@ -47,7 +47,7 @@ while (!Raylib.WindowShouldClose())
         Collision.collision(wall, gubbe);
         scene = Collision.games;
 
-
+Console.WriteLine(Collision.hopp);
 
     }
 
@@ -70,7 +70,18 @@ while (!Raylib.WindowShouldClose())
     {
         Raylib.ClearBackground(Color.Yellow);
         Raylib.DrawText("WOW, YOU WIN", 150, 310, 35, Color.Black);
-        Raylib.DrawText("Press ESC to exit", 150, 350, 35, Color.Black);
+        Raylib.DrawText("Press Space to play again", 150, 350, 35, Color.Black);
+        Raylib.DrawText("Press ESC to exit", 150, 400, 35, Color.Black);
+
+        if (Raylib.IsKeyDown(KeyboardKey.Space))
+        {
+
+            gubbe.player.Y = 500;
+            gubbe.player.X = 100;
+            scene = "play";
+
+        }
+
     }
 
     Raylib.EndDrawing();

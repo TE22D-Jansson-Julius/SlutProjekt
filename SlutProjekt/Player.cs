@@ -16,7 +16,7 @@ public class Player
     public Rectangle player = new Rectangle(100, 500, 50, 50);
 
 
-    public void rörelse()
+    public void rörelse(WallsC wall)
     {
 
 
@@ -31,11 +31,17 @@ public class Player
         {
             movement.X = 3;
         }
+       
+       bool jumpT = false;
+       jumpT = Collision.hopp;
+       if (jumpT)
+       {
         if (Raylib.IsKeyPressed(KeyboardKey.Space))
         {
             movement.Y = jump;
+            Collision.hopp = false;
         }
-
+}
 
 
         player.X += movement.X;
