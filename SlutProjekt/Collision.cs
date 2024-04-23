@@ -9,13 +9,13 @@ class Collision
 
     public static void collision(WallsC wall, Player gubbe)
     {
-
-
+// method checking if the character is colliding with things
         // bool undoX = false;
 
         foreach (Rectangle f in wall.floor)
             if (Raylib.CheckCollisionRecs(f, gubbe.player))
             {
+                // teleports you above the floor and makes it so you can jump
                 gubbe.movement.Y = 0;
                 gubbe.player.Y = f.Y - 50;
                 hopp = true;
@@ -28,7 +28,6 @@ class Collision
 
             if (Raylib.CheckCollisionRecs(p, gubbe.player))
             {
-                //   games="dead";
                 //   Console.WriteLine("iuhawefailjh");
                 game = false;
             }
