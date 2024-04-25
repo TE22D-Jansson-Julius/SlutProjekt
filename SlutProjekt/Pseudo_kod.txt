@@ -1,0 +1,14 @@
+class player 
+    method rörelse 
+        jumpVariable =-10
+        jumpBool = false
+
+        If 
+
+        if jumpBool is true{
+            if space is pressed{
+                movement.y = jumpVariable
+                jumpBool= false
+                
+            }
+        }

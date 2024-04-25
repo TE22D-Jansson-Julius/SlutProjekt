@@ -14,7 +14,7 @@ WallsC wall = new WallsC();
 
 
 string scene = "start";
- 
+
 // logic for 3D array
 wall.wall1();
 
@@ -28,7 +28,7 @@ while (!Raylib.WindowShouldClose())
         Raylib.DrawText("A and D to move Space to jump", 100, 370, 35, Color.Black);
         if (Raylib.IsKeyDown(KeyboardKey.Space))
         {
-// changes scene to play
+            // changes scene to play
             scene = "play";
             // game = true;
 
@@ -37,7 +37,7 @@ while (!Raylib.WindowShouldClose())
 
     if (scene == "play")
     {
-// movement method
+        // movement method
         gubbe.rörelse(wall);
         // draws 3D array
         wall.wall2();
@@ -46,17 +46,17 @@ while (!Raylib.WindowShouldClose())
         Raylib.BeginDrawing();
         Raylib.ClearBackground(Color.SkyBlue);
         // draws character
-        Raylib.DrawRectangleRec(gubbe.player, Color.Purple); 
+        Raylib.DrawRectangleRec(gubbe.player, Color.Purple);
 
-// if wall and gubbe collide change scene
+        // if wall and gubbe collide change scene
         Collision.collision(wall, gubbe);
         scene = Collision.games;
 
-// used for testing jump
-// Console.WriteLine(Collision.hopp);
+        // used for testing jump
+        // Console.WriteLine(Collision.hopp);
 
     }
-// when dead
+    // when dead
     if (scene == "dead")
     {
         Raylib.ClearBackground(Color.Yellow);
@@ -64,13 +64,13 @@ while (!Raylib.WindowShouldClose())
 
         if (Raylib.IsKeyDown(KeyboardKey.Space))
         {
-// If you press space game is restarted
+            // If you press space game is restarted
             gubbe.player.Y = 500;
             gubbe.player.X = 100;
             scene = "play";
         }
     }
-// if you somehow manage to win
+    // if you somehow manage to win
     if (scene == "win")
     {
         Raylib.ClearBackground(Color.Yellow);
@@ -80,7 +80,7 @@ while (!Raylib.WindowShouldClose())
 
         if (Raylib.IsKeyDown(KeyboardKey.Space))
         {
-// also restarts the game. If you want to play again
+            // also restarts the game. If you want to play again
             gubbe.player.Y = 500;
             gubbe.player.X = 100;
             scene = "play";

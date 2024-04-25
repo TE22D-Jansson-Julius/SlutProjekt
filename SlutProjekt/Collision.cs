@@ -9,7 +9,7 @@ class Collision
 
     public static void collision(WallsC wall, Player gubbe)
     {
-// method checking if the character is colliding with things
+        // method checking if the character is colliding with things
         // bool undoX = false;
 
         foreach (Rectangle f in wall.floor)
@@ -20,7 +20,7 @@ class Collision
                 gubbe.player.Y = f.Y - 50;
                 hopp = true;
             }
-           
+
 
         bool game = true;
         foreach (Rectangle p in wall.pole)

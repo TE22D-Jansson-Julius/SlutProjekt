@@ -26,12 +26,11 @@ public class Player
         // {
         //     player.X = 799;
         //     movement.X = 0;
-        //     WallsC.start -= 1;
-            
+        //     WallsC.start -= 1;   
         // }
         // foreach (Rectangle a in wall1)
 
-// Character movement left and right 
+        // Character movement left and right 
         movement.X = Vector2.Zero.X;
 
         if (Raylib.IsKeyDown(KeyboardKey.A))
@@ -43,7 +42,7 @@ public class Player
             movement.X = 3;
         }
 
-// if you are on the floor jump = true, and you can jump
+        // if you are on the floor jump = true, and you can jump
         bool jumpT = false;
         jumpT = Collision.hopp;
         if (jumpT)
@@ -55,7 +54,7 @@ public class Player
             }
         }
 
-// applies the movement to the character 
+        // applies the movement to the character 
         player.X += movement.X;
         player.Y += movement.Y;
         movement.Y += gravity;

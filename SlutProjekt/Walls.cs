@@ -14,7 +14,7 @@ public class WallsC
     bool map = true;
     // public Rectangle wall = new Rectangle(0, 60, 60, 60);
 
-      public static int start= 0;
+    public static int start = 0;
     public void bana()
     {
         if (map)
@@ -22,15 +22,15 @@ public class WallsC
         }
     }
 
-// method with the logic for the logic that makes the map
+    // method with the logic for the logic that makes the map
     public void wall1()
     {
-// 0 = air
-// 1 = floor
-// 2 = danger
-// 3 = goal
-// 4 = dirt
-// 5 = sun
+        // 0 = air
+        // 1 = floor
+        // 2 = danger
+        // 3 = goal
+        // 4 = dirt
+        // 5 = sun
         int[,] grid = {
     {5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -47,9 +47,9 @@ public class WallsC
      };
 
 
-// makes the rectangle X and Y 50
+        // makes the rectangle X and Y 50
         int tileSize = 50;
-// logic saying what to put and when
+        // logic saying what to put and when
         for (var x = start; x < grid.GetLength(1); x++)
         {
             for (var y = 0; y < grid.GetLength(0); y++)
@@ -84,8 +84,8 @@ public class WallsC
 
     public void wall2()
     {
-// draws the rectangles in the 3D Array
-// draws the floor
+        // draws the rectangles in the 3D Array
+        // draws the floor
         foreach (Rectangle f in floor)
         {
             Raylib.DrawRectangleRec(f, Color.Green);
@@ -105,14 +105,14 @@ public class WallsC
             Raylib.DrawRectangleLinesEx(p, 1, Color.Green);
 
         }
-// draws the dirt
-         foreach (Rectangle d in dirt)
+        // draws the dirt
+        foreach (Rectangle d in dirt)
         {
             Raylib.DrawRectangleRec(d, Color.Brown);
             Raylib.DrawRectangleLinesEx(d, 1, Color.DarkBrown);
         }
         // draws the sun
-         foreach (Rectangle s in sun)
+        foreach (Rectangle s in sun)
         {
             Raylib.DrawRectangleRec(s, Color.Yellow);
             Raylib.DrawRectangleLinesEx(s, 1, Color.Orange);
