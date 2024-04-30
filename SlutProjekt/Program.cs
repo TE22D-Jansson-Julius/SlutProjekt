@@ -16,7 +16,7 @@ WallsC wall = new WallsC();
 string scene = "start";
 
 // logic for 3D array
-wall.wall1();
+wall.Logic();
 
 while (!Raylib.WindowShouldClose())
 {
@@ -38,19 +38,19 @@ while (!Raylib.WindowShouldClose())
     if (scene == "play")
     {
         // movement method
-        gubbe.rörelse(wall);
+        gubbe.Rörelse(wall);
         // draws 3D array
-        wall.wall2();
+        wall.Draw();
 
 
         Raylib.BeginDrawing();
         Raylib.ClearBackground(Color.SkyBlue);
         // draws character
-        Raylib.DrawRectangleRec(gubbe.player, Color.Purple);
+        Raylib.DrawRectangleRec(gubbe.Character, Color.Purple);
 
         // if wall and gubbe collide change scene
-        Collision.collision(wall, gubbe);
-        scene = Collision.games;
+        Collision.Check(wall, gubbe);
+        scene = Collision.Games;
 
         // used for testing jump
         // Console.WriteLine(Collision.hopp);
@@ -65,8 +65,8 @@ while (!Raylib.WindowShouldClose())
         if (Raylib.IsKeyDown(KeyboardKey.Space))
         {
             // If you press space game is restarted
-            gubbe.player.Y = 500;
-            gubbe.player.X = 100;
+            gubbe.Character.Y = 500;
+            gubbe.Character.X = 100;
             scene = "play";
         }
     }
@@ -81,8 +81,8 @@ while (!Raylib.WindowShouldClose())
         if (Raylib.IsKeyDown(KeyboardKey.Space))
         {
             // also restarts the game. If you want to play again
-            gubbe.player.Y = 500;
-            gubbe.player.X = 100;
+            gubbe.Character.Y = 500;
+            gubbe.Character.X = 100;
             scene = "play";
         }
 

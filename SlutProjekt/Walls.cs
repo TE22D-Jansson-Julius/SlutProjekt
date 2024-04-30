@@ -6,24 +6,24 @@ using System.Numerics;
 public class WallsC
 {
     //creates lists of rectangles for the 3d array
-    public List<Rectangle> floor = new();
-    public List<Rectangle> goals = new();
-    public List<Rectangle> pole = new();
-    public List<Rectangle> dirt = new();
-    public List<Rectangle> sun = new();
-    bool map = true;
+    public List<Rectangle> Floor = new();
+    public List<Rectangle> Goals = new();
+    public List<Rectangle> Pole = new();
+    public List<Rectangle> Dirt = new();
+    public List<Rectangle> Sun = new();
+    // bool Map = true;
     // public Rectangle wall = new Rectangle(0, 60, 60, 60);
 
-    public static int start = 0;
-    public void bana()
-    {
-        if (map)
-        {
-        }
-    }
+    public static int Start = 0;
+    // public void Bana()
+    // {
+    //     if (Map)
+    //     {
+    //     }
+    // }
 
     // method with the logic for the logic that makes the map
-    public void wall1()
+    public void Logic()
     {
         // 0 = air
         // 1 = floor
@@ -31,7 +31,7 @@ public class WallsC
         // 3 = goal
         // 4 = dirt
         // 5 = sun
-        int[,] grid = {
+        int[,] Grid = {
     {5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -50,69 +50,69 @@ public class WallsC
         // makes the rectangle X and Y 50
         int tileSize = 50;
         // logic saying what to put and when
-        for (var x = start; x < grid.GetLength(1); x++)
+        for (var x = Start; x < Grid.GetLength(1); x++)
         {
-            for (var y = 0; y < grid.GetLength(0); y++)
+            for (var y = 0; y < Grid.GetLength(0); y++)
             {
-                if (grid[y, x] == 1)
+                if (Grid[y, x] == 1)
                 {
-                    floor.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
+                    Floor.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
                 }
-                if (grid[y, x] == 3)
+                if (Grid[y, x] == 3)
                 {
 
-                    goals.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
+                    Goals.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
                 }
-                if (grid[y, x] == 2)
+                if (Grid[y, x] == 2)
                 {
 
-                    pole.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
+                    Pole.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
                 }
-                if (grid[y, x] == 4)
+                if (Grid[y, x] == 4)
                 {
 
-                    dirt.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
+                    Dirt.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
                 }
-                if (grid[y, x] == 5)
+                if (Grid[y, x] == 5)
                 {
 
-                    sun.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
+                    Sun.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
                 }
             }
         }
     }
 
-    public void wall2()
+    public void Draw()
     {
         // draws the rectangles in the 3D Array
         // draws the floor
-        foreach (Rectangle f in floor)
+        foreach (Rectangle f in Floor)
         {
             Raylib.DrawRectangleRec(f, Color.Green);
             Raylib.DrawRectangleLinesEx(f, 1, Color.DarkGreen);
         }
         // draws the goals
-        foreach (Rectangle g in goals)
+        foreach (Rectangle g in Goals)
         {
             Raylib.DrawRectangleRec(g, Color.Purple);
             Raylib.DrawRectangleLinesEx(g, 1, Color.Red);
 
         }
         // draws the pole
-        foreach (Rectangle p in pole)
+        foreach (Rectangle p in Pole)
         {
             Raylib.DrawRectangleRec(p, Color.DarkGreen);
             Raylib.DrawRectangleLinesEx(p, 1, Color.Green);
 
         }
         // draws the dirt
-        foreach (Rectangle d in dirt)
+        foreach (Rectangle d in Dirt)
         {
             Raylib.DrawRectangleRec(d, Color.Brown);
             Raylib.DrawRectangleLinesEx(d, 1, Color.DarkBrown);
         }
         // draws the sun
-        foreach (Rectangle s in sun)
+        foreach (Rectangle s in Sun)
         {
             Raylib.DrawRectangleRec(s, Color.Yellow);
             Raylib.DrawRectangleLinesEx(s, 1, Color.Orange);

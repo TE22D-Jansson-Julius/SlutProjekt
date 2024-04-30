@@ -4,38 +4,38 @@ using System.Security.Cryptography.X509Certificates;
 
 class Collision
 {
-    public static string games = "play";
-    public static bool hopp = false;
+    public static string Games = "play";
+    public static bool CanJump = false;
 
-    public static void collision(WallsC wall, Player gubbe)
+    public static void Check(WallsC wall, Player gubbe)
     {
         // method checking if the character is colliding with things
         // bool undoX = false;
 
-        foreach (Rectangle f in wall.floor)
-            if (Raylib.CheckCollisionRecs(f, gubbe.player))
+        foreach (Rectangle f in wall.Floor)
+            if (Raylib.CheckCollisionRecs(f, gubbe.Character))
             {
                 // teleports you above the floor and makes it so you can jump
                 gubbe.movement.Y = 0;
-                gubbe.player.Y = f.Y - 50;
-                hopp = true;
+                gubbe.Character.Y = f.Y - 50;
+                CanJump = true;
             }
 
 
         bool game = true;
-        foreach (Rectangle p in wall.pole)
+        foreach (Rectangle p in wall.Pole)
         {
 
-            if (Raylib.CheckCollisionRecs(p, gubbe.player))
+            if (Raylib.CheckCollisionRecs(p, gubbe.Character))
             {
                 //   Console.WriteLine("iuhawefailjh");
                 game = false;
             }
-            else games = "play";
+            else Games = "play";
         }
         bool end = false;
-        foreach (Rectangle g in wall.goals)
-            if (Raylib.CheckCollisionRecs(g, gubbe.player))
+        foreach (Rectangle g in wall.Goals)
+            if (Raylib.CheckCollisionRecs(g, gubbe.Character))
             {
                 end = true;
             }
@@ -43,13 +43,13 @@ class Collision
 
         if (end)
         {
-            games = "win";
+            Games = "win";
         }
 
 
         if (!game)
         {
-            games = "dead";
+            Games = "dead";
         }
 
     }

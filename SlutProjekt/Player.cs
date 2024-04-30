@@ -10,16 +10,16 @@ public class Player
 
     public Vector2 movement = new Vector2(0, 0);
 
-    public float jump = -10;
+    public float Jump = -10;
     // int start;
 
     // adds gravity 
-    public float gravity = +0.3f;
+    public float Gravity = +0.3f;
 
-    public Rectangle player = new Rectangle(100, 500, 50, 50);
+    public Rectangle Character = new Rectangle(100, 500, 50, 50);
 
 
-    public void rörelse(WallsC wall)
+    public void Rörelse(WallsC wall)
     {
 
         // if (player.X >= 800)
@@ -44,20 +44,20 @@ public class Player
 
         // if you are on the floor jump = true, and you can jump
         bool jumpT = false;
-        jumpT = Collision.hopp;
+        jumpT = Collision.CanJump;
         if (jumpT)
         {
             if (Raylib.IsKeyPressed(KeyboardKey.Space))
             {
-                movement.Y = jump;
-                Collision.hopp = false;
+                movement.Y = Jump;
+                Collision.CanJump = false;
             }
         }
 
         // applies the movement to the character 
-        player.X += movement.X;
-        player.Y += movement.Y;
-        movement.Y += gravity;
+        Character.X += movement.X;
+        Character.Y += movement.Y;
+        movement.Y += Gravity;
 
     }
 
