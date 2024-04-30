@@ -9,7 +9,7 @@ using Raylib_cs;
 Raylib.InitWindow(1200, 600, "Jag vet inte");
 Raylib.SetTargetFPS(60);
 
-Player gubbe = new Player();
+Player player = new Player();
 WallsC wall = new WallsC();
 
 
@@ -26,7 +26,8 @@ while (!Raylib.WindowShouldClose())
         Raylib.ClearBackground(Color.Yellow);
         Raylib.DrawText("Press Space to play", 150, 310, 35, Color.Black);
         Raylib.DrawText("A and D to move Space to jump", 100, 370, 35, Color.Black);
-        if (Raylib.IsKeyDown(KeyboardKey.Space))
+        Raylib.DrawText("Avoid the dark green rectangles and try to reach the purple", 50, 430, 35, Color.Black);
+        if (Raylib.IsKeyPressed(KeyboardKey.Space))
         {
             // changes scene to play
             scene = "play";
@@ -38,7 +39,7 @@ while (!Raylib.WindowShouldClose())
     if (scene == "play")
     {
         // movement method
-        gubbe.Rörelse(wall);
+        player.Move(wall);
         // draws 3D array
         wall.Draw();
 
@@ -46,10 +47,10 @@ while (!Raylib.WindowShouldClose())
         Raylib.BeginDrawing();
         Raylib.ClearBackground(Color.SkyBlue);
         // draws character
-        Raylib.DrawRectangleRec(gubbe.Character, Color.Purple);
+        Raylib.DrawRectangleRec(player.Character, Color.Purple);
 
         // if wall and gubbe collide change scene
-        Collision.Check(wall, gubbe);
+        Collision.Check(wall, player);
         scene = Collision.Games;
 
         // used for testing jump
@@ -62,11 +63,11 @@ while (!Raylib.WindowShouldClose())
         Raylib.ClearBackground(Color.Yellow);
         Raylib.DrawText("Press space to try again", 150, 310, 35, Color.Black);
 
-        if (Raylib.IsKeyDown(KeyboardKey.Space))
+        if (Raylib.IsKeyPressed(KeyboardKey.Space))
         {
             // If you press space game is restarted
-            gubbe.Character.Y = 500;
-            gubbe.Character.X = 100;
+            player.Character.Y = 500;
+            player.Character.X = 100;
             scene = "play";
         }
     }
@@ -78,11 +79,11 @@ while (!Raylib.WindowShouldClose())
         Raylib.DrawText("Press Space to play again", 150, 350, 35, Color.Black);
         Raylib.DrawText("Press ESC to exit", 150, 400, 35, Color.Black);
 
-        if (Raylib.IsKeyDown(KeyboardKey.Space))
+        if (Raylib.IsKeyPressed(KeyboardKey.Space))
         {
             // also restarts the game. If you want to play again
-            gubbe.Character.Y = 500;
-            gubbe.Character.X = 100;
+            player.Character.Y = 500;
+            player.Character.X = 100;
             scene = "play";
         }
 

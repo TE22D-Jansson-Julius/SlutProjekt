@@ -18,8 +18,12 @@ public class Player
 
     public Rectangle Character = new Rectangle(100, 500, 50, 50);
 
+public void Svår()
+{
+    Console.WriteLine();
+}
 
-    public void Rörelse(WallsC wall)
+    public void Move(WallsC wall)
     {
 
         // if (player.X >= 800)
