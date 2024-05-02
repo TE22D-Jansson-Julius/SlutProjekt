@@ -62,6 +62,7 @@ while (!Raylib.WindowShouldClose())
     {
         Raylib.ClearBackground(Color.Yellow);
         Raylib.DrawText("Press space to try again", 150, 310, 35, Color.Black);
+        Raylib.DrawText("I SAID AVOID THE DARK GREEN RECTANGLES", 120, 370, 35, Color.Black);
 
         if (Raylib.IsKeyPressed(KeyboardKey.Space))
         {
