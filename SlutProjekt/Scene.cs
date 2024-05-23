@@ -6,7 +6,7 @@ public class Scene
 
     string scene = "start";
 
-   
+
     public void Window(WallsC wall, Player player)
     {
 
@@ -79,6 +79,7 @@ public class Scene
             }
 
         }
+        Raylib.EndDrawing();
     }
 
 }

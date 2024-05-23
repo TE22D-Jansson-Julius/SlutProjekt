@@ -31,7 +31,7 @@ public class WallsC
         // 3 = goal
         // 4 = dirt
         // 5 = sun
-        
+
         // Using an array instead of list since it is faster and you can't have a 2D list.
         int[,] Grid = {
     {5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},

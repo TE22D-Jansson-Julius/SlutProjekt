@@ -18,10 +18,10 @@ public class Player
 
     public Rectangle Character = new Rectangle(100, 500, 50, 50);
 
-public void Svår()
-{
-    Console.WriteLine();
-}
+    public void Svår()
+    {
+        Console.WriteLine();
+    }
 
     public void Move(WallsC wall)
     {
@@ -56,6 +56,7 @@ public void Svår()
                 movement.Y = Jump;
                 Collision.CanJump = false;
             }
+    
         }
 
         // applies the movement to the character 
