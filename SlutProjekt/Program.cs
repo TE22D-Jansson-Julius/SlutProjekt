@@ -1,1 +1,1 @@
-﻿Spelet.Program();
+﻿Spelet.Program();  //Method for Program.cs
